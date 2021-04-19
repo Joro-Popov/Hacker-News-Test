@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
-import {View, FlatList, Text, SafeAreaView} from 'react-native';
+import {FlatList, SafeAreaView} from 'react-native';
 import {connect} from 'react-redux';
-import moment from 'moment';
 
 import styles from './styles';
 import StoryListItem from './StoryListItem';
@@ -26,7 +25,7 @@ const StoryList: FC<Props> = props => {
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: any) => ({
   stories: state.story.stories,
 });
 
