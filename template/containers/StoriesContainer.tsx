@@ -5,9 +5,11 @@ import {connect} from 'react-redux';
 import styles from './styles';
 import StoryList from '../components/StoryList';
 import {setStories} from '../redux/actions/storyActions';
+import {Story} from '../interfaces/StoryInterfaces';
 
 interface Props {
-  setStories: any;
+  setStories: () => void;
+  stories: Array<Story>;
 }
 
 const StoriesContainer: FC<Props> = props => {
@@ -17,13 +19,17 @@ const StoriesContainer: FC<Props> = props => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StoryList />
+      <StoryList stories={props.stories} />
     </SafeAreaView>
   );
 };
+
+const mapStateToProps = (state: any) => ({
+  stories: state.story.stories,
+});
 
 const mapDispatchToProps = {
   setStories,
 };
 
-export default connect(null, mapDispatchToProps)(React.memo(StoriesContainer));
+export default connect(mapStateToProps, mapDispatchToProps)(StoriesContainer);

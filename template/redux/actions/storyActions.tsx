@@ -8,8 +8,7 @@ function setStoriesSuccess(stories: any[]) {
   };
 }
 
-export const setStories = () => async (dispatch: any) => {
-  // call service to get stories
+export const setStories = () => async (dispatch: any): Promise<void> => {
   const stories = await StoryService.getRandomTenStories();
 
   dispatch(setStoriesSuccess(stories));

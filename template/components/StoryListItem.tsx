@@ -3,9 +3,10 @@ import {View, Text} from 'react-native';
 import moment from 'moment';
 
 import styles from './styles';
+import {Story} from '../interfaces/StoryInterfaces';
 
 interface Props {
-  item: any;
+  item: Story;
 }
 
 const StoryListItem: FC<Props> = props => {
@@ -23,7 +24,7 @@ const StoryListItem: FC<Props> = props => {
         <View style={styles.footerSubContainer}>
           <Text style={styles.authorName}>Author: {item.authorId}</Text>
           <Text style={styles.authorName}>
-            Karma source: {item.authorKarmaSource}
+            Karma source: {item.authorKarmaScore}
           </Text>
         </View>
         <View style={[styles.footerSubContainer, styles.alignRight]}>

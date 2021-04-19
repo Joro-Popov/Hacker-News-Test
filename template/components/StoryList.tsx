@@ -1,12 +1,11 @@
 import React, {FC} from 'react';
 import {FlatList, SafeAreaView} from 'react-native';
-import {connect} from 'react-redux';
 
 import styles from './styles';
 import StoryListItem from './StoryListItem';
-
+import {Story} from '../interfaces/StoryInterfaces';
 interface Props {
-  stories: any[];
+  stories: Array<Story>;
 }
 
 const StoryList: FC<Props> = props => {
@@ -25,13 +24,4 @@ const StoryList: FC<Props> = props => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
-  stories: state.story.stories,
-});
-
-const mapDispatchToProps = {};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(React.memo(StoryList));
+export default React.memo(StoryList);

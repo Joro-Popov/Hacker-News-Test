@@ -1,14 +1,8 @@
-interface StoryDetails {
-  title: string;
-  url: string;
-  time: number;
-  score: string;
-  by: string;
-}
-
-interface AuthorDetails {
-  karma: string;
-}
+import {
+  StoryDetails,
+  AuthorDetails,
+  Story,
+} from '../interfaces/storyInterfaces';
 
 const getRandomStories = (arr: any[], n: number): Array<number> => {
   let result = new Array(n),
@@ -53,7 +47,7 @@ const getAuthorDetails = async (author: string): Promise<AuthorDetails> => {
   return authorDetails;
 };
 
-const getRandomTenStories = async (): Promise<Object[]> => {
+const getRandomTenStories = async (): Promise<Story[]> => {
   const allStories = await fetch(
     'https://hacker-news.firebaseio.com/v0/topstories.json',
     {
@@ -66,7 +60,7 @@ const getRandomTenStories = async (): Promise<Object[]> => {
 
   let randomStoryIds = getRandomStories(allStories, 10);
 
-  let result = [];
+  let result: Story[] = [];
 
   for await (let storyId of randomStoryIds) {
     const storyDetails = await getStoryDetails(storyId);
@@ -78,7 +72,7 @@ const getRandomTenStories = async (): Promise<Object[]> => {
       timestamp: storyDetails.time,
       storyScore: Number(storyDetails.score),
       authorId: storyDetails.by,
-      authorKarmaSource: authorDetails.karma,
+      authorKarmaScore: authorDetails.karma,
     };
 
     result = [...result, story];

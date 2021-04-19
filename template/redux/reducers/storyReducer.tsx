@@ -1,6 +1,7 @@
 import StoryConstants from '../constants/StoryConstants';
+import {StoryReducer} from '../../interfaces/StoryInterfaces';
 
-const INITIAL_STATE = {
+const INITIAL_STATE: StoryReducer = {
   stories: [],
 };
 
