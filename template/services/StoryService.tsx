@@ -4,7 +4,7 @@ import {
   Story,
 } from '../interfaces/storyInterfaces';
 
-const getRandomStories = (arr: any[], n: number): Array<number> => {
+const getRandomStories = (arr: any[], n: number): Array<any> => {
   let result = new Array(n),
     len = arr.length,
     taken = new Array(len);

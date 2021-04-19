@@ -1,7 +1,8 @@
 import StoryActions from '../constants/StoryConstants';
 import StoryService from '../../services/StoryService';
+import {Story} from '../../interfaces/StoryInterfaces';
 
-function setStoriesSuccess(stories: any[]) {
+function setStoriesSuccess(stories: Array<Story>) {
   return {
     type: StoryActions.SET_TOP_STORIES,
     payload: stories,
