@@ -4,6 +4,7 @@ import moment from 'moment';
 
 import styles from './styles';
 import {Story} from '../../interfaces/StoryInterfaces';
+import GlobalConstants from '../../utils/GlobalConstants';
 
 interface Props {
   item: Story;
@@ -22,17 +23,24 @@ const StoryListItem: FC<Props> = props => {
       </View>
       <View style={styles.footerContainer}>
         <View style={styles.footerSubContainer}>
-          <Text style={styles.authorName}>Author: {item.authorId}</Text>
           <Text style={styles.authorName}>
-            Karma source: {item.authorKarmaScore}
+            {GlobalConstants.AUTHOR(item.authorId)}
+          </Text>
+          <Text style={styles.authorName}>
+            {GlobalConstants.KARMA_SCORE(item.authorKarmaScore)}
           </Text>
         </View>
         <View style={[styles.footerSubContainer, styles.alignRight]}>
           <Text style={styles.authorName}>
-            Date:{' '}
-            {moment(new Date(item.timestamp * 1000)).format('DD/MM/YYYY HH:mm')}
+            {GlobalConstants.DATE(
+              moment(new Date(item.timestamp * 1000)).format(
+                'DD/MM/YYYY HH:mm',
+              ),
+            )}
           </Text>
-          <Text style={styles.authorName}>Story score: {item.storyScore}</Text>
+          <Text style={styles.authorName}>
+            {GlobalConstants.STORY_SCORE(item.storyScore)}
+          </Text>
         </View>
       </View>
     </View>
