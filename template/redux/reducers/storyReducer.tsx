@@ -1,6 +1,7 @@
 import StoryConstants from '../constants/StoryConstants';
+import {Store} from '../../interfaces/StoryInterfaces';
 
-const INITIAL_STATE = {
+const INITIAL_STATE: Store = {
   stories: [],
   isLoading: false,
 };

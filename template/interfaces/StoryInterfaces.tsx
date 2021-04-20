@@ -19,3 +19,7 @@ export interface Story {
   authorKarmaScore: string;
 }
 
+export interface Store {
+  stories: Story[];
+  isLoading: boolean;
+}
