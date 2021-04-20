@@ -1,8 +1,8 @@
 import StoryConstants from '../constants/StoryConstants';
-import {StoryReducer} from '../../interfaces/StoryInterfaces';
 
-const INITIAL_STATE: StoryReducer = {
+const INITIAL_STATE = {
   stories: [],
+  isLoading: false,
 };
 
 export default (state = INITIAL_STATE, action: any) => {
@@ -11,6 +11,12 @@ export default (state = INITIAL_STATE, action: any) => {
       return {
         ...state,
         stories: action.payload,
+      };
+    }
+    case StoryConstants.SET_IS_LOADING: {
+      return {
+        ...state,
+        isLoading: action.payload,
       };
     }
     default:

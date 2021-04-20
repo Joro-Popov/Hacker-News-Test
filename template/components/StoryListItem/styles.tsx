@@ -19,9 +19,6 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 5,
   },
-  contentContainer: {
-    padding: '5%',
-  },
   titleContainer: {
     width: '100%',
     height: '30%',
@@ -57,8 +54,8 @@ const styles = StyleSheet.create({
     fontSize: width / 30,
   },
   alignRight: {
-      alignItems: 'flex-end',
-  }
+    alignItems: 'flex-end',
+  },
 });
 
 export default styles;

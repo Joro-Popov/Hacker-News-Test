@@ -3,7 +3,7 @@ import {View, Text} from 'react-native';
 import moment from 'moment';
 
 import styles from './styles';
-import {Story} from '../interfaces/StoryInterfaces';
+import {Story} from '../../interfaces/StoryInterfaces';
 
 interface Props {
   item: Story;

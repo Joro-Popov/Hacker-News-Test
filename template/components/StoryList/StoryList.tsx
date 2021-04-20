@@ -2,8 +2,8 @@ import React, {FC} from 'react';
 import {FlatList, SafeAreaView} from 'react-native';
 
 import styles from './styles';
-import StoryListItem from './StoryListItem';
-import {Story} from '../interfaces/StoryInterfaces';
+import StoryListItem from '../StoryListItem/StoryListItem';
+import {Story} from '../../interfaces/StoryInterfaces';
 interface Props {
   stories: Array<Story>;
 }

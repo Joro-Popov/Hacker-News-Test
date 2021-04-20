@@ -19,6 +19,3 @@ export interface Story {
   authorKarmaScore: string;
 }
 
-export interface StoryReducer {
-  [stories: string]: Array<Story>;
-}

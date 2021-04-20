@@ -9,8 +9,17 @@ function setStoriesSuccess(stories: Array<Story>) {
   };
 }
 
+function setIsLoadingSuccess(isLoading: boolean) {
+  return {
+    type: StoryActions.SET_IS_LOADING,
+    payload: isLoading,
+  };
+}
+
 export const setStories = () => async (dispatch: any): Promise<void> => {
+  dispatch(setIsLoadingSuccess(true));
   const stories = await StoryService.getRandomTenStories();
 
   dispatch(setStoriesSuccess(stories));
+  dispatch(setIsLoadingSuccess(false));
 };

@@ -1,5 +1,7 @@
 const SET_TOP_STORIES = 'SET_TOP_STORIES';
+const SET_IS_LOADING = 'SET_IS_LOADING';
 
 export default {
   SET_TOP_STORIES,
+  SET_IS_LOADING,
 };

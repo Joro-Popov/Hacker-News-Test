@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {Provider} from 'react-redux';
 import store from './redux/store';
 
-import StoriesContainer from './containers/StoriesContainer';
+import StoriesContainer from './containers/StoriesContainer/StoriesContainer';
 
 const App: FC = () => {
   return (
