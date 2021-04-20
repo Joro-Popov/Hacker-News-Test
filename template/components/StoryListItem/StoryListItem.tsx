@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import moment from 'moment';
 
 import styles from './styles';
@@ -8,19 +8,24 @@ import GlobalConstants from '../../utils/GlobalConstants';
 
 interface Props {
   item: Story;
+  setLink: (url: string) => void;
 }
 
 const StoryListItem: FC<Props> = props => {
   const {item} = props;
+
+  const openLink = (): void => {
+    props.setLink(item.url);
+  };
 
   return (
     <View style={styles.listItemContainer}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>{item.title}</Text>
       </View>
-      <View style={styles.urlContainer}>
+      <TouchableOpacity style={styles.urlContainer} onPress={openLink}>
         <Text style={styles.url}>{item.url}</Text>
-      </View>
+      </TouchableOpacity>
       <View style={styles.footerContainer}>
         <View style={styles.footerSubContainer}>
           <Text style={styles.authorName}>
